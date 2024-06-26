@@ -178,6 +178,7 @@ static inline WCHAR * __SHCloneStrAtoW(WCHAR ** target, const char * source)
 
 extern WCHAR swShell32Name[MAX_PATH];
 
+BOOL UNIXFS_is_rooted_at_desktop(void);
 extern const GUID CLSID_UnixFolder;
 extern const GUID CLSID_UnixDosFolder;
 
