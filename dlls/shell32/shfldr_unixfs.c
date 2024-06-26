@@ -122,8 +122,8 @@
  * will be back in the pre-unixfs days.
  */
 
-#include "config.h"
-#include "wine/port.h"
+//#include "config.h"
+//#include "wine/port.h"
 
 #include <stdio.h>
 #include <stdarg.h>
