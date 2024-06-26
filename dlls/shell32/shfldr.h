@@ -56,6 +56,8 @@ HRESULT SHELL32_BindToChild (LPCITEMIDLIST pidlRoot, const CLSID *clsidChild,
 HRESULT SHELL32_CompareIDs(IShellFolder2 *iface, LPARAM lParam, LPCITEMIDLIST pidl1, LPCITEMIDLIST pidl2);
 LPITEMIDLIST SHELL32_CreatePidlFromBindCtx(IBindCtx *pbc, LPCWSTR path);
 
+HRESULT SHELL32_CreateExtensionUIObject(IShellFolder2 *iface, LPCITEMIDLIST pidl, REFIID riid, LPVOID *ppvOut);
+
 BOOL is_trash_available(void);
 BOOL trash_file( const WCHAR *path );
 
