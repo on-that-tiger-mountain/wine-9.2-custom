@@ -1791,7 +1791,7 @@ LPITEMIDLIST _ILCreateDrive(LPCWSTR lpszNew)
         if (pszDest)
         {
             strcpy(pszDest, "x:\\");
-            pszDest[0]=towupper(lpszNew[0]);
+            pszDest[0]=toupperW(lpszNew[0]);
             TRACE("-- create Drive: %s\n", debugstr_a(pszDest));
         }
     }
