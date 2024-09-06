@@ -1,3 +1,7 @@
+original version:
+
+https://github.com/brunodev85/wine-9.2-custom
+
 ## INTRODUCTION
 
 Wine is a program which allows running Microsoft Windows programs
