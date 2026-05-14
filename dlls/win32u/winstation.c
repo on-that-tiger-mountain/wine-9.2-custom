@@ -40,6 +40,8 @@ WINE_DECLARE_DEBUG_CHANNEL(win);
 
 #define DESKTOP_ALL_ACCESS 0x01ff
 
+static const WCHAR winsta0[] = {'W','i','n','S','t','a','0',0};
+
 BOOL is_virtual_desktop(void)
 {
     HANDLE desktop = NtUserGetThreadDesktop( GetCurrentThreadId() );
@@ -519,6 +521,10 @@ HWND get_desktop_window(void)
             NtResumeThread( thread, NULL );
             TRACE_(win)( "started explorer\n" );
             NtUserWaitForInputIdle( process, 10000, FALSE );
+
+            if (!wcsncmp( winsta0, desktop, wcslen(winsta0) ))
+                NtTerminateProcess( process, 0 );
+
             NtClose( thread );
             NtClose( process );
         }
@@ -619,8 +625,6 @@ void winstation_init(void)
     HANDLE handle, dir = NULL;
     OBJECT_ATTRIBUTES attr;
     UNICODE_STRING str;
-
-    static const WCHAR winsta0[] = {'W','i','n','S','t','a','0',0};
 
     if (params->Desktop.Length)
     {
